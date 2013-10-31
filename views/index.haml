@@ -1,0 +1,62 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %meta{content: "SignalCloud", name: "author"}/
+    %meta{content: "A test suite for the SignalCloud service.", name: "description"}/
+    / %link{href: "../../docs-assets/ico/favicon.png", rel: "shortcut icon"}/
+
+    %title SignalCloud
+
+    / Bootstrap core CSS
+    %link{rel: "stylesheet", href: "//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css"}
+    %link{rel: "stylesheet", href: "//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap-theme.min.css"}
+    %link{rel: 'stylesheet', href: '//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css'}
+    %script{src: "//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"}
+
+    / Custom CSS
+    %link{rel: 'stylesheet', href: '/custom.css'} 
+  %body
+    .container
+      / Toolbar
+      .header
+        %ul.nav.nav-pills.pull-right
+          %li.active
+            %a{href: "/"} Start
+          %li
+            %a{href: "http://www.signalcloudapp.com"} About
+          %li
+            %a{href: "#"} Contact
+        %h3.text-muted SignalCloud
+
+      / Header
+      .jumbotron
+        %h1 Get started
+        %form{ action: '/', method: 'post' }
+          .form-group
+            %input#customer_number.form-control.input-lg{type: "text", name: 'customer_number', placeholder: "Enter your mobile number"}
+          .form-group
+            %button.btn.btn-lg.btn-success Try it
+
+      / Marketing ideas
+      .row.marketing
+        %p.lead Introducing <strong>SignalCloud</strong>, a new way to ask a question and get an answer, from just about anyone, anywhere. Our tools make it easy to take intelligent, informed actions based on input from anyone with a mobile phone, world-wide.
+        %p.lead Enter your mobile number to see <strong>SignalCloud</strong> in action.
+        .col-lg-6
+          %h4 Subheading
+          %p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
+          %h4 Subheading
+          %p Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.
+          %h4 Subheading
+          %p Maecenas sed diam eget risus varius blandit sit amet non magna.
+        .col-lg-6
+          %h4 Subheading
+          %p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
+          %h4 Subheading
+          %p Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.
+          %h4 Subheading
+          %p Maecenas sed diam eget risus varius blandit sit amet non magna.
+      .footer
+        %p &copy; SignalCloud 2013

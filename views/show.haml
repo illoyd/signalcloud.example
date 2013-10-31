@@ -1,0 +1,69 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %meta{content: "SignalCloud", name: "author"}/
+    %meta{content: "A test suite for the SignalCloud service.", name: "description"}/
+    - if %w(draft asking asked receiving received).include? @conversation.status
+      %meta{content: "2", "http-equiv" => "refresh"}/
+    / %link{href: "../../docs-assets/ico/favicon.png", rel: "shortcut icon"}/
+
+    %title SignalCloud
+
+    / Bootstrap core CSS
+    %link{rel: "stylesheet", href: "//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css"}
+    %link{rel: "stylesheet", href: "//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap-theme.min.css"}
+    %link{rel: 'stylesheet', href: '//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css'}
+    %script{src: "//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"}
+
+    / Custom CSS
+    %link{rel: 'stylesheet', href: '/custom.css'} 
+  %body
+    .container
+      / Toolbar
+      .header
+        %ul.nav.nav-pills.pull-right
+          %li
+            %a{href: "/"} Start Over
+          %li
+            %a{href: "http://www.signalcloudapp.com"} About
+        %h3.text-muted SignalCloud
+      
+      / Question
+      %p.lead{style: 'text-align: center'}= @conversation.question
+
+      / Status
+      .jumbotron{ class: conversation_state(@conversation.status) }
+        %h1= @conversation.status
+        %h1= conversation_state_icon( @conversation.status, class: 'fa-3x' )
+      
+      / History
+      %p.lead History
+      %table.table
+        %tbody
+          - unless @conversation.try(:challenge_sent_at).blank?
+            %tr
+              %td Asked
+              %td= @conversation.challenge_sent_at 
+
+          - unless @conversation.try(:response_received_at).blank?
+            %tr
+              %td Received
+              %td= @conversation.response_received_at 
+
+        -#
+          - unless @conversation.try(:reply_sent_at).blank?
+            %tr
+              %td Replied
+              %td= @conversation.try(:reply_sent_at)
+        
+
+      / JSON
+      -#
+        %p.lead JSON
+        %pre= @conversation.to_json
+
+      .footer
+        %p &copy; SignalCloud 2013
