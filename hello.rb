@@ -69,6 +69,10 @@ def conversation_state( state )
   end
 end
 
+error do
+  haml :error
+end
+
 # Start page
 get '/' do
   haml :index
@@ -78,11 +82,8 @@ end
 post '/' do
   redirect '/' if params[:customer_number].blank?
 
-  # Start...
+  # Start the conversation
   @conversation = client().start_conversation( ORGANIZATION_ID, stencil_id: STENCIL_ID, customer_number: params[:customer_number] )
-  #@conversation.to_s
-
-  # Redirect to view...
   redirect "/#{@conversation.id}"
 end
 

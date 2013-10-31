@@ -1,0 +1,44 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %meta{content: "SignalCloud", name: "author"}/
+    %meta{content: "A test suite for the SignalCloud service.", name: "description"}/
+    - if %w(draft asking asked receiving received).include? @conversation.status
+      %meta{content: "2", "http-equiv" => "refresh"}/
+    / %link{href: "../../docs-assets/ico/favicon.png", rel: "shortcut icon"}/
+
+    %title SignalCloud Error!
+
+    / Bootstrap core CSS
+    %link{rel: "stylesheet", href: "//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css"}
+    %link{rel: "stylesheet", href: "//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap-theme.min.css"}
+    %link{rel: 'stylesheet', href: '//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css'}
+    %script{src: "//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"}
+
+    / Custom CSS
+    %link{rel: 'stylesheet', href: '/custom.css'} 
+  %body
+    .container
+      / Toolbar
+      .header
+        %ul.nav.nav-pills.pull-right
+          %li
+            %a{href: "/"} Start Over
+          %li
+            %a{href: "http://www.signalcloudapp.com"} About
+        %h3.text-muted SignalCloud
+      
+      / Question
+      %h1{style: 'text-align: center'} Oops!
+      %p
+        Something went wrong.
+        %a{href="/"} Try again.
+
+      %p.lead Error Message
+      %pre= env['sinatra.error']
+
+      .footer
+        %p &copy; SignalCloud 2013
