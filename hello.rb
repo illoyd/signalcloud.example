@@ -5,7 +5,8 @@ require 'haml'
 require 'signalcloud.rb' #, git: 'https://github.com/illoyd/signalcloud.rb'
 
 ORGANIZATION_ID = 1
-STENCIL_ID = 2
+STENCIL_ID      = 2
+SERVICE_URI     = 'https://eu.signalcloudapp.com'
 
 ##
 # Icons for icon helper, for global management and access. May move into more efficient library later.
@@ -26,7 +27,7 @@ ICONS = {
 }.freeze
 
 def client( username=nil, password=nil )
-  SignalCloud::Client.new( username, password, base_uri: 'https://us.signalcloudapp.com' )
+  SignalCloud::Client.new( username, password, base_uri: SERVICE_URI )
 end
 
 def icon( kind = :blank, options = {} )
