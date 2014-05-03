@@ -8,8 +8,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    active_support (3.0.0)
-      activesupport (= 3.0.0)
     activesupport (3.0.0)
     api_smith (1.2.0)
       hashie (~> 1.0)
@@ -40,7 +38,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_support
+  activesupport
   haml
   i18n
   shotgun
